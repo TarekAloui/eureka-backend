@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from researchPapers.views import home_view, paper_detail_view, paper_create_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", home_view),
+    path("papers/<int:paper_id>", paper_detail_view),
+    path("papers/forms", paper_create_view)
 ]
