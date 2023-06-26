@@ -1,4 +1,9 @@
 <form method="POST"> {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
+    <!-- {{ form.as_p }} -->
+
+   <input type="hidden" value="/" name="next"/>
+   <input type="text" name="title" />
+   <input type="text" name="author" />
+   <textarea type="text" name="description"></textarea>
+   <button type="submit">Save</button>  
  </form>

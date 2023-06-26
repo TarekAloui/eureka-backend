@@ -1,0 +1,29 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+  <h1>DjangoReact</h1>
+  <div id="papers"></div>
+  <script>
+    const papersElement = document.getElementById('papers')
+    papersElement.innerHTML = 'Just a moment'
+    const xhr = new XMLHttpRequest()
+    const method = 'GET' // or POST
+    const url = '/papers/'
+    const responseType = 'json'
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function(){
+      const urlResponse = xhr.response
+      const Items = urlResponse.response
+      let finalExecution = "" 
+      let i;
+      for(i = 0; i < Items.length; i++){
+        let currentItem = "<h3>" + Items[i].title + "</h3>"
+        currentItem += "<h4>" + Items[i].author + "<h4>"
+        currentItem += "<p>" + Items[i].description + "</p>"
+        finalExecution += currentItem 
+      }
+    papersElement.innerHTML = finalExecution
+    }
+xhr.send()
+</script>
+{% endblock content %}
