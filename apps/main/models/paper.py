@@ -1,28 +1,7 @@
 from django.db import models
 import uuid
-
-
-class Author(models.Model):
-    name = models.CharField(max_length=255)
-    affiliation = models.CharField(
-        max_length=255, blank=True, null=True
-    )  # Can be blank or null
-    hIndex = models.PositiveIntegerField()
-    i10Index = models.PositiveIntegerField()
-    citations = models.PositiveIntegerField()
-    interests = models.TextField(
-        blank=True, null=True
-    )  # Store interests as comma-separated values
-    profileUrl = models.URLField()
-
-
-class Tweet(models.Model):
-    url = models.URLField()
-    user_name = models.CharField(max_length=255)
-    retweets = models.PositiveIntegerField()
-    likes = models.PositiveIntegerField()
-    text = models.TextField()
-    date = models.DateTimeField()
+from .tweet import Tweet
+from .author import Author
 
 
 class Paper(models.Model):
