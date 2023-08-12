@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "graphene_django",
     "apps.main",
     "apps.scraper",
 ]
@@ -80,6 +81,10 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# GRAPHQL
+
+GRAPHENE = {"SCHEMA": "apps.main.schema.schema"}
 
 
 # Password validation
