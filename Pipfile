@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-debug-toolbar = "*"
+graphene-django = "*"
+faker = "*"
 
 [dev-packages]
 

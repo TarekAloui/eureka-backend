@@ -1,5 +1,5 @@
 """
-URL configuration for eureka_backend project.
+URL configuration for config project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,13 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from researchPapers.views import home_view, paper_detail_view, paper_create_view, list_papers
+from django.urls import include, path
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home_view),
-    path("papers/", list_papers),
-    path("papers/<int:paper_id>", paper_detail_view),
-    path("papers/forms", paper_create_view),
+    path("graphql/", GraphQLView.as_view(graphiql=True), name="graphql"),
+    path("main/", include("apps.main.urls"), name="main"),
 ]
