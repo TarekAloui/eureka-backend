@@ -25,7 +25,9 @@ SECRET_KEY = "django-insecure-vn=3de-fqvm7!%9jg4%34i$wk9i!r+t!1ra&#_3o@nla)b3oft
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+DEBUG_HOSTS = ['127.0.0.1', 'localhost', 'localhost:3000']
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,7 +86,7 @@ DATABASES = {
 
 # GRAPHQL
 
-GRAPHENE = {"SCHEMA": "apps.main.schema.schema"}
+GRAPHENE = {"SCHEMA": "apps.main.schema.schema", 'SCHEMA_OUTPUT': 'schema.graphql',}
 
 
 # Password validation

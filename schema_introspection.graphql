@@ -1,0 +1,87 @@
+type Query {
+  authors: [AuthorType]
+  papers: [PaperType]
+  tweets: [TweetType]
+  paper(id: UUID!): PaperType
+  tweet(id: UUID!): TweetType
+  author(id: UUID!): AuthorType
+}
+
+type AuthorType {
+  id: ID!
+  name: String!
+  affiliation: String
+  hIndex: Int!
+  i10Index: Int!
+  citations: Int!
+  interests: String
+  profileUrl: String!
+  paperSet: [PaperType!]!
+}
+
+type PaperType {
+  id: UUID!
+  title: String!
+  authors: [AuthorType]
+  abstract: String!
+  pubDate: DateTime!
+  updatedDate: DateTime!
+  categories: String
+  links: String
+  comment: String
+  journalRef: String
+  trendinessScore: Float!
+  relatedTweets: [TweetType]
+}
+
+"""
+Leverages the internal Python implementation of UUID (uuid.UUID) to provide native UUID objects
+in fields, resolvers and input.
+"""
+scalar UUID
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+type TweetType {
+  id: ID!
+  url: String!
+  userName: String!
+  retweets: Int!
+  likes: Int!
+  text: String!
+  date: DateTime!
+  paperSet: [PaperType!]!
+}
+
+type Mutation {
+  createAuthor(authorInput: CreateAuthorInput!): CreateAuthor
+  updateAuthor(authorInput: CreateAuthorInput!, id: ID!): UpdateAuthor
+  deleteAuthor(id: ID!): DeleteAuthor
+}
+
+type CreateAuthor {
+  author: AuthorType
+}
+
+input CreateAuthorInput {
+  name: String
+  affiliation: String
+  hIndex: Int
+  i10Index: Int
+  citations: Int
+  interests: String
+  profileUrl: String
+}
+
+type UpdateAuthor {
+  author: AuthorType
+}
+
+type DeleteAuthor {
+  success: Boolean
+}
