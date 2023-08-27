@@ -8,6 +8,7 @@ django = "*"
 django-debug-toolbar = "*"
 graphene-django = "*"
 faker = "*"
+whitenoise = "*"
 
 [dev-packages]
 

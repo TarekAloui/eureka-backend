@@ -2,5 +2,7 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
     },
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "appService.defaultWebAppToDeploy": "/subscriptions/e0399d72-c640-424e-966b-886bd8c5a1d5/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/eureka-papers-backend",
+    "appService.deploySubpath": "."
 }
