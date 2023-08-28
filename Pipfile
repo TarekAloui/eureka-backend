@@ -9,6 +9,8 @@ django-debug-toolbar = "*"
 graphene-django = "*"
 faker = "*"
 whitenoise = "*"
+psycopg2-binary = "*"
+django-environ = "*"
 
 [dev-packages]
 
